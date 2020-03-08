@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYSQL QUERIES</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body style="background-color: aquamarine;">
+    <div class="container" style="text-align: center;">
+        <h2>TABLE OF CONTENTS:</h2>
+        <table border="2px" align="center">
+            <tr>
+                <th style="padding: 10px;">NAME</th>
+                <th style="padding: 10px;">EMAIL</th>
+            </tr>
+            {% for d in data: %}
+            <tr>
+                <td style="padding: 10px;">{{ d[1] }}</td>
+                <td style="padding: 10px;">{{ d[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <form action="/insert" method="POST">
+            <input type="text" name="name" placeholder="name" style="width:300px; height:30px; border-radius: 5px;"><br><br>
+            <input type="text" name="email" placeholder="email" style="width:300px; height:30px; border-radius: 5px;"><br><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form><br><br>
+        <form action="/sort" method="POST">
+            <h3>QUERY:</h3>
+            <button type="submit" class="btn btn-primary">Sort by Name</button>
+        </form><br><br>
+        <form action="/findEmail" method="POST">
+            <input type="text" placeholder="name" name="name" style="width:300px; height:30px; border-radius: 5px;">
+            <button type="submit" class="btn btn-primary">Enter name and fetch email</button>
+        </form><br><br>
+        <form action="/searchSubstring" method="POST">
+            <input type="text" placeholder="name" name="name" style="width:300px; height:30px; border-radius: 5px;">
+            <button type="submit" class="btn btn-primary">Enter substring of name to be found</button>
+        </form><br><br>
+        <form action="/reset" method="POST">
+            <h3>QUERY:</h3>
+            <button type="submit" class="btn btn-danger">RESET</button>
+        </form><br><br>
+    </div>
+</body>
+</html>
